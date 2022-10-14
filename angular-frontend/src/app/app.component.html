@@ -1,0 +1,81 @@
+<table border="1">
+  <thead>
+    <tr>
+      <td>Product Id</td>
+      <td>Product Name</td>
+      <td>Product Type</td>
+      <td>Product Category</td>
+      <td>Product Price</td>
+      <td></td>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let res of responseData; let i = index">
+      <td>{{res.productId}}</td>
+      <td>{{res.name}}</td>
+      <td>{{res.productType}}</td>
+      <td>{{res.category}}</td>
+      <td>{{res.basePrice}}</td>
+
+      <button (click)="updateBtn(i)">Update</button>
+      <button (click)="deleteData(i)">Delete</button>
+      <!-- <td>{{res.charges.gst}}</td> -->
+      <!-- <td>res.productName</td> -->
+    </tr>
+  </tbody>
+</table>
+<br><br>
+<button (click)="addBtn()">Add Product</button>
+
+<ng-container *ngIf="showAddDiv">
+  <h2>Add Product</h2>
+<table border="1">
+  <thead>
+    <td>Product Id</td>
+      <td>Product Name</td>
+      <td>Product Type</td>
+      <td>Product Category</td>
+      <td>Product Price</td>
+  </thead>
+
+  <tbody>
+    <tr >
+      <td><input type="text" name="username" [(ngModel)]="updateProductId" name="username"></td>
+      <td><input type="text" name="username" [(ngModel)]="updateProductName" name="username"></td>
+      <td> <input type="text" name="username" [(ngModel)]="updateProductType" name="username"></td>
+      <td><input type="text" name="username" [(ngModel)]="updateProductCategory" name="username"></td>
+      <td><input type="text" name="username" [(ngModel)]="updateProductPrice" name="username"></td>
+      <button (click)="addData()">Add </button>
+    </tr>
+    
+  </tbody>
+</table>
+</ng-container>
+
+<ng-container  *ngIf="IsUpdateOn">
+  <h2>Update Product</h2>
+<table>
+  <thead>
+    <td>Product Id</td>
+      <td>Product Name</td>
+      <td>Product Type</td>
+      <td>Product Category</td>
+      <td>Product Price</td>
+  </thead>
+
+  <tbody>
+    <tr >
+      <td><input type="text" name="username" [(ngModel)]="updateProductId" name="username"></td>
+      <td><input type="text" name="username" [(ngModel)]="updateProductName" name="username"></td>
+      <td> <input type="text" name="username" [(ngModel)]="updateProductType" name="username"></td>
+      <td><input type="text" name="username" [(ngModel)]="updateProductCategory" name="username"></td>
+      <td><input type="text" name="username" [(ngModel)]="updateProductPrice" name="username"></td>
+      <button (click)="updateData()">Update Product</button>
+    </tr>
+  </tbody>
+</table>
+
+
+</ng-container>
+<router-outlet></router-outlet>
